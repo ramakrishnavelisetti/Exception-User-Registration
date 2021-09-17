@@ -7,6 +7,7 @@ import static org.junit.Assert.*;
 
 public class ExceptionUserRegistrationTest {
         ExceptionUserRegistration exceptionUserRegistration = new ExceptionUserRegistration();
+        MoodAnalyser moodAnalyser = new MoodAnalyser();
 
     @Test
     public void givenFirstName_IsProper_ReturnTrue() {
@@ -96,5 +97,15 @@ public class ExceptionUserRegistrationTest {
         boolean actualResult = exceptionUserRegistration.passwordRule4("jsdjcvcp");
         Assert.assertEquals(false, actualResult);
     }
+    @Test
+    public void givenMessage_WhenHappy_ReturnEntrySuccessful() {
+        String actualResult = moodAnalyser.analyseMood("User is Happy");
+        Assert.assertEquals("Entry Successful", actualResult);
+    }
 
+    @Test
+    public void givenEmail2_WhenNotProper_ReturnEntryFailed() {
+        String actualResult = moodAnalyser.analyseMood("User is Sad");
+        Assert.assertEquals("Entry Failed", actualResult);
+    }
 }
