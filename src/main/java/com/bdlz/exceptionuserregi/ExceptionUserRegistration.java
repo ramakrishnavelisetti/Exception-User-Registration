@@ -14,7 +14,9 @@ public class ExceptionUserRegistration {
     public static boolean testFirstName(String firstName) throws InputInvalidException {
         try {
             if (!firstName(firstName)) {
-                throw new InputInvalidException("Entered FirstName is Invalid");
+                throw new InputInvalidException("Entered FirstName is Invalid\n" +
+                        "First name starts with Capital Letter and has\n" +
+                        "minimum 3 characters");
             } else {
                 System.out.println("Entered FirstName is Valid");
             }
@@ -32,7 +34,9 @@ public class ExceptionUserRegistration {
     public static boolean testLastName(String lastName) throws InputInvalidException {
         try {
             if (!firstName(lastName)) {
-                throw new InputInvalidException("Entered LastName is Invalid");
+                throw new InputInvalidException("Entered LastName is Invalid\n" +
+                        "Last name starts with Capital Letter and has\n" +
+                        "minimum 3 characters");
             } else {
                 System.out.println("Entered LastName is Valid");
             }
@@ -70,7 +74,8 @@ public class ExceptionUserRegistration {
             if (!mobileNumber(mobileNumber)) {
                 throw new InputInvalidException("Entered MobileNumber is Invalid");
             } else {
-                System.out.println("Entered MobileNumber is Valid");
+                System.out.println("Entered MobileNumber is Valid\n" +
+                        "Mobile Number Must Contain Country Code");
             }
         } catch (InputInvalidException e) {
             System.out.println("Exception is Occurred" + e);
@@ -86,7 +91,10 @@ public class ExceptionUserRegistration {
     public static boolean testPassword(String password) throws InputInvalidException {
         try {
             if (!password(password)) {
-                throw new InputInvalidException("Entered Password is Invalid");
+                throw new InputInvalidException("Entered Password is Invalid\n" +
+                        "Password Must Contain at least\n" +
+                        "one Uppercase, one Numeric, one Special Char\n" +
+                        "and minimum 8 Characters ");
             } else {
                 System.out.println("Entered Password is Valid");
             }
